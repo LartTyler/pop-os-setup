@@ -77,6 +77,7 @@ sudo ./privileged.sh "$(whoami)" "$hostname" $skip_packages
 cp -r "$project_root"/configs/shell/.config/* "$HOME/.config"
 cp -r "$project_root"/configs/gui/.config/* "$HOME/.config"
 cp -r "$project_root"/configs/editor/.config/* "$HOME/.config"
+cp -r "$project_root"/configs/env/.pam_environment "$HOME"
 
 # Set up neovim
 sh -c 'curl --silent -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

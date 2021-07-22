@@ -1,0 +1,7 @@
+EDITOR=nvim
+
+PATH DEFAULT=${PATH}:@{HOME}/bin
+PATH DEFAULT=${PATH}:@{HOME}/.cargo/bin
+PATH DEFAULT=${PATH}:@{HOME}/.local/bin
+
+LESS DEFAULT="-F -X -R"
