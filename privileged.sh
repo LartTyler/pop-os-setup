@@ -63,14 +63,15 @@ if [ -z "$skip_packages" ]; then
 
 	# Next, install the packages we know we're going to need. They'll be configured later by the main install script.
 	apt-get install -y \
-	alacritty \
-	discord \
-	exa \
-	fish \
-	neovim \
-	snapd
+		alacritty \
+		discord \
+		exa \
+		fish \
+		neovim \
+		snapd
 
-	snap install spotify
+	snap install \
+		spotify
 fi
 
 # Change the user's shell to Fish. We'll configure it later in the main install script.
