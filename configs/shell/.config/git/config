@@ -1,0 +1,32 @@
+[init]
+	defaultBranch = main
+
+[user]
+	name = Tyler Lartonoix
+	email = tyler@lartonoix.com
+
+[ui "color"]
+	ui = always
+
+[color]
+	ui = true
+
+[core]
+	autocrlf = input
+	safecrlf = true
+
+[merge]
+	tool = nvim -d
+
+[help]
+	autocorrect = 1
+
+[github]
+	user = larttyler
+
+[alias]
+	c = commit
+	s = status
+	co = checkout
+	ps = push
+	pl = pull
