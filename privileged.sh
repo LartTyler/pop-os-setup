@@ -78,7 +78,7 @@ if [ -z "$skip_packages" ]; then
 	snap install \
 		spotify
 
-	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 fi
 
 # Build the git credential helper we need to use to store secrets in the Gnome keyring
