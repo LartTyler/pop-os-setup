@@ -8,6 +8,16 @@ else
     abbr -a ll 'ls -alFh'
 end
 
+function d
+	while test $PWD != "/"
+		if test -d .git
+			break
+		end
+
+		cd ..
+	end
+end
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
