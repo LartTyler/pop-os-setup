@@ -6,7 +6,7 @@ font:
         family: Noto Sans Mono
 
 mouse:
-  hide_when_typing: true
+    hide_when_typing: true
 
 colors:
     # Default colors
