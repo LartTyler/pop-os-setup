@@ -69,6 +69,8 @@ if [ -z "$skip_packages" ]; then
 		docker-compose \
 		exa \
 		fish \
+		libsecret-1-0 \
+		libsecret-1-dev \
 		neovim \
 		snapd \
 		tmux
@@ -76,6 +78,9 @@ if [ -z "$skip_packages" ]; then
 	snap install \
 		spotify
 fi
+
+# Build the git credential helper we need to use to store secrets in the Gnome keyring
+make -C /usr/share/doc/git/contrib/credential/libsecret
 
 # Change the user's shell to Fish. We'll configure it later in the main install script.
 chsh "$username" -s $(command -v fish)

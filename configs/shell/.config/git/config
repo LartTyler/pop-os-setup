@@ -30,3 +30,6 @@
 	co = checkout
 	ps = push
 	pl = pull
+
+[credential]
+	 helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
