@@ -18,6 +18,9 @@ function d
 	end
 end
 
+# FIX: Terminal capabilities warning when SSH'ing into certain work machines
+setenv TERM xterm
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
