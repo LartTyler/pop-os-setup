@@ -69,6 +69,7 @@ if [ -z "$skip_packages" ]; then
 		docker-compose \
 		exa \
 		fish \
+		golang \
 		libsecret-1-0 \
 		libsecret-1-dev \
 		neovim \

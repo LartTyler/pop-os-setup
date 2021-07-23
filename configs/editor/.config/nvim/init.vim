@@ -16,6 +16,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Fuzzy file search
 Plug 'airblade/vim-rooter'
@@ -52,6 +53,10 @@ let g:sneak#s_next = 1
 
 " Markdown
 let g:vim_markdown_folding_disabled = 1
+
+" Hexokinase
+set termguicolors
+let g:Hexokinase_highlighters = [ 'virtual' ]
 
 " == Editor Settings ==
 filetype plugin indent on
