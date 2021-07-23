@@ -134,9 +134,9 @@ command! -bang -nargs=? -complete=dir Files
 	\ call fzf#vim#files(<q-args>, {'source': s:list_cmd(), 'options': '--tiebreak=index'}, <bang>0)
 
 " Quick save and close
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>W :wq<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>W :wq<CR>
 
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
