@@ -91,10 +91,11 @@ set lazyredraw
 set laststatus=2
 set number
 set relativenumber
-set colorcolumn=120
 set showcmd
 set mouse=a
 set shortmess+=c
+set colorcolumn=120
+highlight ColorColumn ctermbg=242 guibg=DarkGrey
 
 " Better? diffs
 set diffopt+=iwhite
