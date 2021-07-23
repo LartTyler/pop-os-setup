@@ -135,8 +135,8 @@ command! -bang -nargs=? -complete=dir Files
 
 " Quick save and close
 nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
 nnoremap <leader>W :wq<CR>
+nnoremap <leader>q :q<CR>
 
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
@@ -159,9 +159,6 @@ nnoremap <leader><leader> <c-^>
 
 " <leader>, shows/hides hidden characters
 nnoremap <leader>, :set invlist<cr>
-
-" <leader>q shows stats
-nnoremap <leader>q g<c-g>
 
 " Keymap for replacing up to next _ or -
 noremap <leader>m ct_
