@@ -49,3 +49,7 @@ function fish_prompt
 end
 
 set fish_greeting
+
+if status --is-interactive
+	tmux 2> /dev/null; and exec true
+end
