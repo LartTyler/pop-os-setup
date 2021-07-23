@@ -65,10 +65,13 @@ if [ -z "$skip_packages" ]; then
 	apt-get install -y \
 		alacritty \
 		discord \
+		docker \
+		docker-compose \
 		exa \
 		fish \
 		neovim \
-		snapd
+		snapd \
+		tmux
 
 	snap install \
 		spotify
