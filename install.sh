@@ -15,6 +15,11 @@ usage() {
 	echo "    Do not generate a new keypair"
 }
 
+copy_configs() {
+	cp "$1"/.* ~ 2>/dev/null
+	cp -r "$1"/.config/* ~/.config 2>/dev/null
+}
+
 positional_args=()
 
 while [ $# -ne 0 ]; do
@@ -71,13 +76,13 @@ fi
 
 project_root=`dirname "$0"`
 
-sudo ./privileged.sh "$(whoami)" "$hostname" $skip_packages
+sudo "$project_root"/privileged.sh "$(whoami)" "$hostname" $skip_packages
 
 # Copy config files
-cp -r "$project_root"/configs/shell/.config/* "$HOME/.config"
-cp -r "$project_root"/configs/gui/.config/* "$HOME/.config"
-cp -r "$project_root"/configs/editor/.config/* "$HOME/.config"
-cp -r "$project_root"/configs/env/.pam_environment "$HOME"
+copy_configs "$project_root"/configs/shell
+copy_configs "$project_root"/configs/gui
+copy_configs "$project_root"/configs/editor
+copy_configs "$project_root"/configs/env
 
 # Set up neovim
 sh -c 'curl --silent -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
