@@ -58,6 +58,9 @@ let g:vim_markdown_folding_disabled = 1
 set termguicolors
 let g:Hexokinase_highlighters = [ 'virtual' ]
 
+" FZF
+let g:fzf_layout = { 'down': '~40%' }
+
 " == Editor Settings ==
 filetype plugin indent on
 set autoindent
