@@ -21,6 +21,9 @@
 [help]
 	autocorrect = 1
 
+[pull]
+	ff = only
+
 [github]
 	user = larttyler
 
