@@ -21,6 +21,11 @@ end
 # FIX: Terminal capabilities warning when SSH'ing into certain work machines
 setenv TERM xterm
 
+# vim-fzf command defaults
+setenv FZF_DEFAULT_COMMAND 'fdfind --type file --follow'
+setenv FZF_CTRL_T_COMMAND 'fdfind --type file --follow'
+setenv FZF_DEFAULT_OPTS '--height 20%'
+
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showdirtystate 'yes'
