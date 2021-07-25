@@ -18,9 +18,6 @@ function d
 	end
 end
 
-# FIX: Terminal capabilities warning when SSH'ing into certain work machines
-setenv TERM xterm
-
 # vim-fzf command defaults
 setenv FZF_DEFAULT_COMMAND 'fdfind --type file --follow'
 setenv FZF_CTRL_T_COMMAND 'fdfind --type file --follow'
