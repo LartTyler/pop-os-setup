@@ -116,6 +116,13 @@ set shortmess+=c
 set colorcolumn=120
 highlight ColorColumn ctermbg=242 guibg=DarkGrey
 
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+set inccommand=nosplit
+
+if !has('gui_running')
+	set t_Co=256
+end
+
 " Better? diffs
 set diffopt+=iwhite
 
