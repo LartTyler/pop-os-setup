@@ -80,6 +80,9 @@ if [ -z "$skip_packages" ]; then
 		gh \
 		spotify
 
+	snap install --classic \
+		node
+
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 	"$HOME"/.cargo/bin/cargo install \

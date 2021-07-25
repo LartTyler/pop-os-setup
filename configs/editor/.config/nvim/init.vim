@@ -24,6 +24,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Language support
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
@@ -89,6 +90,16 @@ set incsearch
 set ignorecase
 set smartcase
 set gdefault
+
+" Completion support
+set cmdheight=2
+set updatetime=300
+
+" Language: Rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
 
 " == GUI Settings ==
 set guioptions-=T
