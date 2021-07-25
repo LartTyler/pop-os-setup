@@ -1,0 +1,2 @@
+abbr -a ca cargo
+
