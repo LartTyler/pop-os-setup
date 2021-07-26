@@ -90,3 +90,9 @@ sh -c 'curl --silent -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autol
 
 nvim +'PlugInstall --sync' +qa
 
+# Install rust-analyzer
+mkdir -p "$HOME"/.local/bin
+
+curl --silent -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > "$HOME"/.local/bin/rust-analyzer
+chmod +x "$HOME"/.local/bin/rust-analyzer
+
