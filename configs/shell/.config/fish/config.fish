@@ -18,6 +18,9 @@ function d
 	end
 end
 
+# Use ctrl-r to move the first background job to the foreground
+bind \cr 'fg >/dev/null 2>&1 || echo -e \nNo background jobs; commandline -f repaint'
+
 # vim-fzf command defaults
 setenv FZF_DEFAULT_COMMAND 'fdfind --type file --follow'
 setenv FZF_CTRL_T_COMMAND 'fdfind --type file --follow'
