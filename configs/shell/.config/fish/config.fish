@@ -1,6 +1,9 @@
 abbr -a e 'nvim'
 abbr -a vim 'nvim'
 
+abbr -a xc 'xclip -selection clipboard <'
+abbr -a xp 'xclip -o -selection clipboard'
+
 if command -v exa > /dev/null
     abbr -a ls 'exa'
     abbr -a ll 'exa -la'
