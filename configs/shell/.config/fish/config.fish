@@ -72,5 +72,5 @@ end
 set fish_greeting
 
 if status --is-interactive
-	tmux attach 2> /dev/null; and exec true
+	tmux 2> /dev/null; and exec true
 end
