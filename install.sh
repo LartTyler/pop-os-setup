@@ -71,7 +71,13 @@ if [ $# -ne 0 ]; then
 fi
 
 if [ -z "$skip_keypair" ]; then
-	ssh-keygen -t rsa -b 4096 -C "$(whoami)@${hostname}" -f "$HOME/.ssh/id_rsa"
+	keypair_hostname="$hostname"
+
+	if [ -z "$keypair_hostname" ]; then
+		keypair_hostname="$(hostname)"
+	fi
+
+	ssh-keygen -t rsa -b 4096 -C "$(whoami)@${keypair_hostname}" -f "$HOME/.ssh/id_rsa"
 fi
 
 project_root=`dirname "$0"`
