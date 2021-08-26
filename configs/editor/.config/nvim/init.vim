@@ -130,4 +130,3 @@ set diffopt+=iwhite
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 
 source $HOME/.config/nvim/conf.d/keys.vim
-

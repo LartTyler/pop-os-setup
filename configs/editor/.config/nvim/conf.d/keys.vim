@@ -31,6 +31,7 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <leader>w :w<CR>
 nnoremap <leader>W :wq<CR>
 nnoremap <leader>q :q<CR>
+nnoremap <leader>d :bd<CR>
 
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
