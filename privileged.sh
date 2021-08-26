@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "Usage: $0 [options] <username> <hostname>"
+	echo "Usage: $0 [options] <username>"
 	echo
 	echo "Options:"
 	echo "  --skip-packages"
 	echo "    If set, do not install any new packages."
+	echo
+	echo "  --hostname <hostname>"
+	echo "    Set the system hostname to the given value."
 }
 
-skip_packages=""
 positional_args=()
 
 while [ $# -ne 0 ]; do
 	key="$1"
 
 	case "$key" in
+		--hostname)
+			hostname="$2"
+
+			shift
+
+			;;
+
 		--skip-packages)
 			skip_packages="--skip-packages"
 
@@ -46,14 +55,13 @@ done
 
 set -- "${positional_args[@]}"
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 1 ]; then
 	usage
 
 	exit 1
 fi
 
 username="$1"
-hostname="$2"
 
 if [ -z "$skip_packages" ]; then
 	# Get our OS as up to date as we can first
@@ -95,8 +103,10 @@ make -C /usr/share/doc/git/contrib/credential/libsecret
 # Change the user's shell to Fish. We'll configure it later in the main install script.
 chsh "$username" -s $(command -v fish)
 
-# Update system hostname
-hostnamectl set-hostname "$hostname"
-echo "127.0.0.1		localhost $hostname ${hostname}.local
-::1		localhost $hostname ${hostname}.local
-" > /etc/hosts
+if [ -n "$hostname" ]; then
+	# Update system hostname
+	hostnamectl set-hostname "$hostname"
+	echo "127.0.0.1		localhost $hostname ${hostname}.local
+	::1		localhost $hostname ${hostname}.local
+	" > /etc/hosts
+fi

@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 
 usage() {
-	echo "$0 [options] <hostname>"
-	echo
-	echo "Arguments:"
-	echo "  hostname"
-	echo "    The hostname to assign to this system."
+	echo "$0 [options]"
 	echo
 	echo "Options:"
 	echo "  --skip-packages"
@@ -13,6 +9,9 @@ usage() {
 	echo
 	echo "  --skip-keypair"
 	echo "    Do not generate a new keypair"
+	echo
+	echo "  --hostname <hostname>"
+	echo "    Set the system hostname to the specified value"
 }
 
 positional_args=()
@@ -21,6 +20,12 @@ while [ $# -ne 0 ]; do
 	key="$1"
 
 	case "$key" in
+		--hostname)
+			hostname="$2"
+			shift
+
+			;;
+
 		--skip-packages)
 			skip_packages="--skip-packages"
 
@@ -57,13 +62,13 @@ done
 
 set -- "${positional_args[@]}"
 
-if [ $# -ne 1 ]; then
+if [ $# -ne 0 ]; then
+	echo "Unrecognized argument(s)"
+
 	usage
 
 	exit 1
 fi
-
-hostname="$1"
 
 if [ -z "$skip_keypair" ]; then
 	ssh-keygen -t rsa -b 4096 -C "$(whoami)@${hostname}" -f "$HOME/.ssh/id_rsa"
@@ -71,7 +76,11 @@ fi
 
 project_root=`dirname "$0"`
 
-sudo "$project_root"/privileged.sh "$(whoami)" "$hostname" $skip_packages
+if [ -n "$hostname" ]; then
+	hostname_arg="--hostname '$hostname'"
+fi
+
+sudo "$project_root"/privileged.sh "$(whoami)" $skip_packages $hostname_arg
 
 "$project_root"/configs.sh
 
