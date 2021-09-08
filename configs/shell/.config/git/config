@@ -31,8 +31,16 @@
 	c = commit
 	s = status
 	co = checkout
+	cob = checkout -b
+	lg = log --pretty=format:\"%C(yellow)%h%Creset -%C(red)%d%Creset %s %C(green)(%cr) [%an]\" --abbrev-commit
 	ps = push
 	pl = pull
+	ap = add -p
+	br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	ahead = !echo "Ahead by $(git rev-list --count main..) commits" 
+	ahead-diff = !git show $(git rev-list main..)
+	behind = !echo "Ahead by $(git rev-list --count ..main) commits"
+	behind-diff = !git show $(git rev-list ..main)
 
 [credential]
 	 helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
