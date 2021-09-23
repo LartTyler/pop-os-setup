@@ -65,7 +65,11 @@ function fish_prompt
 	set_color green
 	printf '%s ' (__fish_git_prompt)
 	set_color red
-	echo -n '| '
+	if test $COLUMNS -le 80
+		echo -en '\n> '
+	else
+		echo -n '| '
+	end
 	set_color normal
 end
 
