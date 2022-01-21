@@ -24,15 +24,29 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Language support
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'cespare/vim-toml'
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/lsp_extensions.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp', {'branch': 'main'}
+Plug 'hrsh7th/cmp-buffer', {'branch': 'main'}
+Plug 'hrsh7th/cmp-path', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'ray-x/lsp_signature.nvim'
+
+" nvim-csp requires a snippet engine
+Plug 'hrsh7th/cmp-vsnip', {'branch': 'main'}
+Plug 'hrsh7th/vim-vsnip'
 
 call plug#end()
+
+lua << END
+require('entry')
+END
 
 " == Plugin Configurations ==
 
@@ -71,6 +85,19 @@ set noshowmode
 set hidden
 set nowrap
 set nojoinspaces
+set signcolumn=yes
+set foldmethod=marker
+
+" Better splits
+set splitright
+set splitbelow
+
+" Wrapping options
+set formatoptions=tc " wrap text and comments using text width
+set formatoptions+=r " continue comments when pressing ENTER in I mode
+set formatoptions+=q " enable formatting of comments with gq
+set formatoptions+=n " detect lists for matting
+set formatoptions+=b " auto-wrap in insert mode, and do not wrap old long lines
 
 " Permanent undo
 set undodir=~/.vimdid
@@ -92,6 +119,7 @@ set smartcase
 set gdefault
 
 " Completion support
+set completeopt=menuone,noinsert,noselect
 set cmdheight=2
 set updatetime=300
 
@@ -115,6 +143,9 @@ set mouse=a
 set shortmess+=c
 set colorcolumn=120
 highlight ColorColumn ctermbg=242 guibg=DarkGrey
+highlight clear SignColumn
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 set inccommand=nosplit
@@ -128,5 +159,7 @@ set diffopt+=iwhite
 
 " Show hidden characters
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+
+autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ only_current_line = true }
 
 source $HOME/.config/nvim/conf.d/keys.vim

@@ -15,7 +15,7 @@ map L $
 
 " Open files / buffers
 nmap <leader>; :Buffers<CR>
-nmap <leader>e :e <C-R>=expand('%:p:h') . "/" <CR>
+nmap <leader>o :e <C-R>=expand('%:p:h') . "/" <CR>
 map <C-p> :Files<CR>
 
 function! s:list_cmd()
