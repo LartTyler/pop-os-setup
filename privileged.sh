@@ -64,6 +64,7 @@ fi
 username="$1"
 
 if [ -z "$skip_packages" ]; then
+	add-apt-repository -y ppa:neovim-ppa/stable
 	# Get our OS as up to date as we can first
 	apt-get update
 	apt-get upgrade -y
